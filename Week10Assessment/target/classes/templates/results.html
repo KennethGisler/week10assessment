@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View All Units</title>
+</head>
+<body>
+Unit stats are as follow:
+<pre>Name     Type Cost M WS BS S T W A Ls Sv</pre>
+<form>
+<table>
+<tr th:each="currentUnit : ${units}">
+	
+	<td th:text="${currentUnit.name}" /> 
+	<td th:text="${currentUnit.type}"/>
+	<td th:text="${currentUnit.cost}" />
+	<td th:text="${currentUnit.stats.movement}" />
+	<td th:text="${currentUnit.stats.weaponsSkill}"/>
+	<td th:text="${currentUnit.stats.ballisticsSkill}"/>
+	<td th:text="${currentUnit.stats.strength}"/>
+	<td th:text="${currentUnit.stats.toughness}"/>
+	<td th:text="${currentUnit.stats.wounds}"/>
+	<td th:text="${currentUnit.stats.attacks}"/>
+	<td th:text="${currentUnit.stats.leadership}"/>
+	<td th:text="${currentUnit.stats.save}"/>
+	<td><a th:href="@{/edit/{id}(id=${currentUnit.id})}" >Edit</a></td>
+	<td><a th:href="@{/delete/{id}(id=${currentUnit.id})}" >Delete</a> </td>
+	
+</table>
+<br/>
+</form>
+	<form action="/inputUnit">
+    <input type="submit" value="Add a unit" />
+	</form>
+</body>
+</html>

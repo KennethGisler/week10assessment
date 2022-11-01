@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add or edit a unit</title>
+</head>
+<body>
+<form th:object="${newUnit}" th:action="@{/update/{id}(id=${newUnit.id})}" m method='POST'>
+	Name: <input name="name" size="20"  th:field="*{name}"> <br/>
+	Type: <input name="type" size="15" th:field="*{type}"> 
+	Cost: <input name="cost" size="2" th:field="*{cost}"> <br/>
+	Movement: <input name="stats.movement" size="2" th:field="*{stats.movement}" > <br/>
+	Weapons Skill: <input name="stats.weaponsSkill" size="2" th:field="*{stats.weaponsSkill}">
+	Ballistics Skill: <input name="stats.ballisticsSkill" size="2" th:field="*{stats.ballisticsSkill}"> <br/>
+	Strength: <input name="stats.strength" size="2" th:field="*{stats.strength}">
+	Toughness:<input name="stats.toughness" size="2" th:field="*{stats.toughness}"> <br/>
+	Wounds: <input name="stats.wounds" size="2" th:field="*{stats.wounds}"> <br/>
+	Attacks: <input name="stats.attacks" size="2" th:field="*{stats.attacks}"> <br/>
+	Leadership: <input name="stats.leadership" size="2" th:field="*{stats.leadership}"> <br/>
+	Save: <input name="stats.save" size="2" th:field="*{stats.save}"> <br/>
+	<input name="submit" type="submit" value="submit" />
+</form>
+<form action="viewAll">
+    <input type="submit" value="See all units" />
+	</form>
+</body>
+</html>
